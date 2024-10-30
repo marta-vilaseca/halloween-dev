@@ -2,7 +2,8 @@
 
 My solutions for the spooky coding challenges over at **[Halloween.dev](https://halloween.dev) _(2024 edition)_**, by [@midudev](https://midu.dev). If you know Javascript or Typescript, go and challenge yourself as well and give the project some love! 🧡
 
-> [!IMPORTANT] > **This repository is a work in progress.**
+> [!IMPORTANT]
+> **This repository is a work in progress.**
 
 ![](https://geps.dev/progress/80) Added all my initial solutions for each challenge in JavaScript  
 ![](https://geps.dev/progress/0) Refactored the initial solutions until I'm _moderately_ happy with them
