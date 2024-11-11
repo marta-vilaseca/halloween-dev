@@ -1,25 +1,15 @@
 function createMagicPotion(potions, target) {
-  const result = [];
-  let finalResult;
-  let smallerIndex = potions.length;
+  const checkedPotions = new Map();
 
-  for (let i = 0; i < potions.length - 1; i++) {
-    for (let j = i + 1; j < potions.length; j++) {
-      let sum = potions[i] + potions[j];
+  for (const [index, potion] of potions.entries()) {
+    const matchingPotion = target - potion;
 
-      if (sum === target) {
-        let match = [i, j];
-        result.push(match);
-      }
+    if (checkedPotions.has(matchingPotion)) {
+      return [checkedPotions.get(matchingPotion), index];
     }
+
+    checkedPotions.set(potion, index);
   }
 
-  result.forEach((element) => {
-    if (element[1] < smallerIndex) {
-      smallerIndex = element[1];
-      finalResult = element;
-    }
-  });
-
-  return finalResult || undefined;
+  return undefined;
 }

@@ -1,29 +1,30 @@
 function findSafestPath(dream) {
   const numRows = dream.length;
   const numCols = dream[0].length;
-  const min_danger = Array(numRows)
-    .fill()
-    .map(() => Array(numCols).fill(0));
 
-  // start from top left cell
-  min_danger[0][0] = dream[0][0];
+  // Create a 2D array to store the minimum danger values
+  const minDanger = Array.from({ length: numRows }, () => Array(numCols).fill(0));
 
-  // handle first row
+  // Initialize the starting point
+  minDanger[0][0] = dream[0][0];
+
+  // Fill the first row
   for (let col = 1; col < numCols; col++) {
-    min_danger[0][col] = min_danger[0][col - 1] + dream[0][col];
+    minDanger[0][col] = minDanger[0][col - 1] + dream[0][col];
   }
 
-  // handle first column
+  // Fill the first column
   for (let row = 1; row < numRows; row++) {
-    min_danger[row][0] = min_danger[row - 1][0] + dream[row][0];
+    minDanger[row][0] = minDanger[row - 1][0] + dream[row][0];
   }
 
-  // handle the rest
+  // Fill the rest of the grid
   for (let row = 1; row < numRows; row++) {
     for (let col = 1; col < numCols; col++) {
-      min_danger[row][col] = Math.min(min_danger[row - 1][col], min_danger[row][col - 1]) + dream[row][col];
+      minDanger[row][col] = Math.min(minDanger[row - 1][col], minDanger[row][col - 1]) + dream[row][col];
     }
   }
 
-  return min_danger[numRows - 1][numCols - 1];
+  // Return the result at the bottom-right corner
+  return minDanger[numRows - 1][numCols - 1];
 }

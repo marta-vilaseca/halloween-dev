@@ -6,7 +6,7 @@ My solutions for the spooky coding challenges over at **[Halloween.dev](https://
 > **This repository is a work in progress.**
 
 ![](https://geps.dev/progress/100) Added all my initial solutions for each challenge in JavaScript  
-![](https://geps.dev/progress/0) Refactored the initial solutions until I'm _moderately_ happy with them  
+![](https://geps.dev/progress/80) Refactored the initial solutions until I'm _moderately_ happy with them  
 ![](https://geps.dev/progress/0) Added the solutions for each challenge in TypeScript
 
 👇🏻 [Changelog](#changelog)
@@ -21,5 +21,6 @@ My solutions for the spooky coding challenges over at **[Halloween.dev](https://
 
 ### Changelog
 
-- **October 31st** posted the JavaScript solution for challenge 5. **Happy Halloween!**
-- **October 30th** created the repo and posted the JavaScript solutions for challenges 1,2,3,4
+- **November 11th / ** posted refactored versions of challenges 1,2,3,4
+- **October 31st / ** posted the JavaScript solution for challenge 5. **Happy Halloween!**
+- **October 30th / ** created the repo and posted the JavaScript solutions for challenges 1,2,3,4
