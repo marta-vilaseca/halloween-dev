@@ -1,30 +1,28 @@
 function findTheKiller(whisper, suspects) {
-  result = "";
-  resultArr = [];
+  const resultArr = [];
 
-  let whisperLength = whisper.length - (whisper.endsWith("$") ? 1 : 0);
+  const endsWithDollar = whisper.endsWith("$");
+  const whisperLength = endsWithDollar ? whisper.length - 1 : whisper.length;
 
-  for (let i = 0; i < suspects.length; i++) {
-    let suspectName = suspects[i].split(" ")[0].toLowerCase();
+  for (const suspect of suspects) {
+    const suspectName = suspect.split(" ")[0].toLowerCase();
+
+    if (endsWithDollar && whisperLength !== suspectName.length) {
+      continue; // Skip if lengths don't match
+    }
+
     let isMatch = true;
-
-    if (whisper.endsWith("$") && whisperLength !== suspectName.length) {
-      isMatch = false;
-    } else {
-      for (let j = 0; j < whisperLength; j++) {
-        if (whisper[j] !== "~" && suspectName[j] !== whisper[j]) {
-          isMatch = false;
-          break;
-        }
+    for (let j = 0; j < whisperLength; j++) {
+      if (whisper[j] !== "~" && suspectName[j] !== whisper[j]) {
+        isMatch = false;
+        break;
       }
     }
 
-    if (isMatch) resultArr.push(suspects[i]);
+    if (isMatch) {
+      resultArr.push(suspect);
+    }
   }
 
-  if (resultArr.length > 0) {
-    result = resultArr.join(",");
-  }
-
-  return result;
+  return resultArr.length > 0 ? resultArr.join(",") : "";
 }

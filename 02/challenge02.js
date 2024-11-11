@@ -1,34 +1,28 @@
 function battleHorde(zombies, humans) {
-    const zombiesArr = zombies.split('');
-    const humansArr = humans.split('');
-  
-    let zombieAccum = 0;
-    let humanAccum = 0;
-  
-    for (let i = 0; i < zombiesArr.length; i++) {
-      let zombieP = +zombiesArr[i] + zombieAccum;
-      let humanP = +humansArr[i] + humanAccum; 
-      if (zombieP > humanP) {
-        zombieAccum = zombieP - humanP;
-        humanAccum = 0;
-      }
-      else if (humanP > zombieP) {
-        humanAccum = humanP - zombieP;
-        zombieAccum = 0;
-      } else {
-        humanAccum = 0;
-        zombieAccum = 0;
-      }
-    }
-  
-    if (zombieAccum > humanAccum) {
-      return zombieAccum + 'z';
-    } else if (humanAccum > zombieAccum) {
-      return humanAccum + 'h';
+  let zombieScore = 0;
+  let humanScore = 0;
+
+  for (let i = 0; i < zombies.length; i++) {
+    zombieScore += +zombies[i];
+    humanScore += +humans[i];
+
+    if (zombieScore > humanScore) {
+      zombieScore -= humanScore;
+      humanScore = 0;
+    } else if (humanScore > zombieScore) {
+      humanScore -= zombieScore;
+      zombieScore = 0;
     } else {
-      return 'x'
+      zombieScore = 0;
+      humanScore = 0;
     }
-    
   }
-  
-  
+
+  if (zombieScore > humanScore) {
+    return zombieScore + "z";
+  } else if (humanScore > zombieScore) {
+    return humanScore + "h";
+  } else {
+    return "x";
+  }
+}
